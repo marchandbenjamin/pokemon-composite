@@ -1,5 +1,5 @@
 {
   "name": "Pikachu",
   "types": ["ELECTRIC"],
-  "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT"]
+  "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"]
 }

@@ -1,6 +1,8 @@
 package com.bmarchand.pokemon_composite.controller;
 
+import com.bmarchand.pokemon_composite.controller.response.PokemonResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +18,7 @@ public class PokemonController {
     private final PokemonService pokemonService;
 
     @GetMapping
-    public Object pokemonTeamOptimizer(List<String> pokemonList) {
-        return pokemonService.pokemonTeamOptimizer(pokemonList);
+    public ResponseEntity<PokemonResponse> pokemonTeamOptimizer(List<String> pokemonList) {
+        return ResponseEntity.ok(pokemonService.pokemonTeamOptimizer(pokemonList));
     }
 }
