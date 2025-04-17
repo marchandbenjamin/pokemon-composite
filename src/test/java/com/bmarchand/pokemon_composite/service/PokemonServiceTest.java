@@ -18,7 +18,6 @@ class PokemonServiceTest {
     @Autowired
     private PokemonService pokemonService;
 
-
     @Test
     void pokemonTeamOptimizer_should_return_pikachu_type_and_capacities() {
         // GIVEN
@@ -144,6 +143,33 @@ class PokemonServiceTest {
         Assertions.assertEquals(pokemon.getName(), dracaufeu);
         Assertions.assertEquals(pokemon.getAllPossibleTypes(),
                 List.of(PokemonType.FIRE, PokemonType.FLYING));
+        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        );
+    }
+
+    @Test
+    void pokemonTeamOptimizer_should_return_magby_and_magmar_type_and_capacities() {
+        // GIVEN
+        String magmar = "Magmar";
+        List<String> pokemonList = List.of(magmar);
+
+        // WHEN
+        PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
+
+        // ASSERT
+        List<PokemonCapacities> expectedCapacities = Stream.of(
+                PokemonCapacities.CONFUSE_RAY,
+                PokemonCapacities.EMBER,
+                PokemonCapacities.FIRE_PUNCH,
+                PokemonCapacities.FIRE_SPIN,
+                PokemonCapacities.LEER,
+                PokemonCapacities.SMOKESCREEN
+        ).sorted().toList();
+
+        Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
+        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(pokemon.getName(), magmar);
+        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.FIRE));
         Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
         );
     }

@@ -1,0 +1,87 @@
+[
+  {
+    "type": "Pokemon",
+    "name": "Salamèche",
+    "types": [
+      "FIRE"
+    ],
+    "capacities": [
+      "SCRATCH",
+      "GROWL",
+      "EMBER",
+      "LEER",
+      "RAGE",
+      "SLASH",
+      "FLAMETHROWER"
+    ]
+  },
+  {
+    "type": "EvolvedPokemon",
+    "name": "Reptincel",
+    "preEvolution": {
+      "type": "Pokemon",
+      "name": "Salamèche",
+      "types": [
+        "FIRE"
+      ],
+      "capacities": [
+        "SCRATCH",
+        "GROWL",
+        "EMBER",
+        "LEER",
+        "RAGE",
+        "SLASH",
+        "FLAMETHROWER"
+      ]
+    },
+    "types": [
+      "FIRE"
+    ],
+    "capacities": [
+      "SMOKESCREEN",
+      "SCARY_FACE",
+      "FIRE_SPIN"
+    ]
+  },
+  {
+    "type": "EvolvedPokemon",
+    "name": "Dracaufeu",
+    "preEvolution": {
+      "type": "EvolvedPokemon",
+      "name": "Reptincel",
+      "preEvolution": {
+        "type": "Pokemon",
+        "name": "Salamèche",
+        "types": [
+          "FIRE"
+        ],
+        "capacities": [
+          "SCRATCH",
+          "GROWL",
+          "EMBER",
+          "LEER",
+          "RAGE",
+          "SLASH",
+          "FLAMETHROWER"
+        ]
+      },
+      "types": [
+        "FIRE"
+      ],
+      "capacities": [
+        "SMOKESCREEN",
+        "SCARY_FACE",
+        "FIRE_SPIN"
+      ]
+    },
+    "types": [
+      "FIRE",
+      "FLYING"
+    ],
+    "capacities": [
+      "WING_ATTACK",
+      "FLAMETHROWER",
+      "FIRE_BLAST"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "type": "Pokemon",
+    "name": "Magby",
+    "types": [
+      "FIRE"
+    ],
+    "capacities": [
+      "EMBER",
+      "SMOKESCREEN",
+      "LEER",
+      "FIRE_SPIN"
+    ]
+  },
+  {
+    "type": "EvolvedPokemon",
+    "name": "Magmar",
+    "types": [
+      "FIRE"
+    ],
+    "capacities": [
+      "EMBER",
+      "SMOKESCREEN",
+      "LEER",
+      "CONFUSE_RAY",
+      "FIRE_PUNCH"
+    ],
+    "preEvolution": {
+      "type": "Pokemon",
+      "name": "Magby",
+      "types": [
+        "FIRE"
+      ],
+      "capacities": [
+        "EMBER",
+        "SMOKESCREEN",
+        "LEER",
+        "FIRE_SPIN"
+      ]
+    }
+  }
+]
