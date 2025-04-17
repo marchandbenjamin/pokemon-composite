@@ -10,12 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @SpringBootTest
 class PokemonServiceTest {
 
     @Autowired
-    private PokemonService pokemonService;  // Ton service réel qui utilise PokemonRepository
+    private PokemonService pokemonService;
 
 
     @Test
@@ -28,21 +29,22 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
+        List<PokemonCapacities> expectedCapacities = Stream.of(
+                PokemonCapacities.THUNDER_SHOCK,
+                PokemonCapacities.GROWL,
+                PokemonCapacities.QUICK_ATTACK,
+                PokemonCapacities.THUNDERBOLT,
+                PokemonCapacities.THUNDER,
+                PokemonCapacities.SWIFT,
+                PokemonCapacities.DOUBLE_TEAM,
+                PokemonCapacities.REST
+        ).sorted().toList();
+
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
         Assertions.assertEquals(pokemon.getName(), pikachu);
         Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
-        Assertions.assertEquals(
-                List.of(
-                        PokemonCapacities.THUNDER_SHOCK,
-                        PokemonCapacities.GROWL,
-                        PokemonCapacities.QUICK_ATTACK,
-                        PokemonCapacities.THUNDERBOLT,
-                        PokemonCapacities.THUNDER,
-                        PokemonCapacities.SWIFT,
-                        PokemonCapacities.DOUBLE_TEAM,
-                        PokemonCapacities.REST),
-                pokemon.getAllPossibleCapacities()
+        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
         );
     }
 
@@ -56,24 +58,24 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
+        List<PokemonCapacities> expectedCapacities = Stream.of(
+                PokemonCapacities.THUNDER_SHOCK,
+                PokemonCapacities.GROWL,
+                PokemonCapacities.QUICK_ATTACK,
+                PokemonCapacities.THUNDERBOLT,
+                PokemonCapacities.THUNDER,
+                PokemonCapacities.SWIFT,
+                PokemonCapacities.DOUBLE_TEAM,
+                PokemonCapacities.REST,
+                PokemonCapacities.THUNDER_WAVE,
+                PokemonCapacities.AGILITY
+        ).sorted().toList();
+
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
         Assertions.assertEquals(pokemon.getName(), raichu);
         Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
-        Assertions.assertEquals(
-                List.of(
-                        PokemonCapacities.THUNDER_SHOCK,
-                        PokemonCapacities.GROWL,
-                        PokemonCapacities.QUICK_ATTACK,
-                        PokemonCapacities.THUNDERBOLT,
-                        PokemonCapacities.THUNDER,
-                        PokemonCapacities.SWIFT,
-                        PokemonCapacities.DOUBLE_TEAM,
-                        PokemonCapacities.REST,
-                        PokemonCapacities.THUNDER_WAVE,
-                        PokemonCapacities.AGILITY
-                ),
-                pokemon.getAllPossibleCapacities()
+        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
         );
     }
 
@@ -87,28 +89,62 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
+        List<PokemonCapacities> expectedCapacities = Stream.of(
+                PokemonCapacities.GROWL,
+                PokemonCapacities.QUICK_ATTACK,
+                PokemonCapacities.TACKLE,
+                PokemonCapacities.SAND_ATTACK,
+                PokemonCapacities.TAIL_WHIP,
+                PokemonCapacities.BITE,
+                PokemonCapacities.DOUBLE_EDGE,
+                PokemonCapacities.WATER_GUN,
+                PokemonCapacities.ACID_ARMOR,
+                PokemonCapacities.AURORA_BEAM,
+                PokemonCapacities.HAZE,
+                PokemonCapacities.MIST
+        ).sorted().toList();
+
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
         Assertions.assertEquals(pokemon.getName(), aquali);
         Assertions.assertEquals(pokemon.getAllPossibleTypes(),
                 List.of(PokemonType.NORMAL, PokemonType.WATER));
-        Assertions.assertEquals(
-                List.of(
-                        PokemonCapacities.GROWL,
-                        PokemonCapacities.QUICK_ATTACK,
-                        PokemonCapacities.TACKLE,
-                        PokemonCapacities.SAND_ATTACK,
-                        PokemonCapacities.TAIL_WHIP,
-                        PokemonCapacities.BITE,
-                        PokemonCapacities.DOUBLE_EDGE,
-                        PokemonCapacities.WATER_GUN,
-                        PokemonCapacities.ACID_ARMOR,
-                        PokemonCapacities.AURORA_BEAM,
-                        PokemonCapacities.HAZE,
-                        PokemonCapacities.MIST
-                ),
-                pokemon.getAllPossibleCapacities()
+        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
         );
 
+    }
+
+    @Test
+    void pokemonTeamOptimizer_should_return_dracaufeu_reptincel_and_salameche_types_and_capacities() {
+        // GIVEN
+        String dracaufeu = "Dracaufeu";
+        List<String> pokemonList = List.of(dracaufeu);
+
+        // WHEN
+        PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
+
+        // ASSERT
+        List<PokemonCapacities> expectedCapacities = Stream.of(
+                PokemonCapacities.EMBER,
+                PokemonCapacities.FIRE_BLAST,
+                PokemonCapacities.FIRE_SPIN,
+                PokemonCapacities.FLAMETHROWER,
+                PokemonCapacities.GROWL,
+                PokemonCapacities.LEER,
+                PokemonCapacities.RAGE,
+                PokemonCapacities.SCARY_FACE,
+                PokemonCapacities.SCRATCH,
+                PokemonCapacities.SLASH,
+                PokemonCapacities.SMOKESCREEN,
+                PokemonCapacities.WING_ATTACK
+        ).sorted().toList();
+
+        Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
+        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(pokemon.getName(), dracaufeu);
+        Assertions.assertEquals(pokemon.getAllPossibleTypes(),
+                List.of(PokemonType.FIRE, PokemonType.FLYING));
+        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        );
     }
 }

@@ -33,6 +33,7 @@ public class EvolvedPokemon extends Pokemon {
         }
         return allCapacities
                 .stream()
+                .distinct()
                 .sorted()
                 .toList();
     }
