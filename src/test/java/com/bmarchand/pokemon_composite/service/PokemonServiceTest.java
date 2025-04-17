@@ -1,5 +1,6 @@
 package com.bmarchand.pokemon_composite.service;
 
+import com.bmarchand.pokemon_composite.controller.response.OptimizedPokemon;
 import com.bmarchand.pokemon_composite.controller.response.PokemonResponse;
 import com.bmarchand.pokemon_composite.service.domain.Pokemon;
 import com.bmarchand.pokemon_composite.service.domain.PokemonCapacities;
@@ -40,10 +41,10 @@ class PokemonServiceTest {
         );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
-        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pokemon.getName(), pikachu);
-        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
-        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        OptimizedPokemon optimizedPokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(optimizedPokemon.getName(), pikachu);
+        Assertions.assertEquals(optimizedPokemon.getAllTypes(), List.of(PokemonType.ELECTRIC));
+        Assertions.assertEquals(expectedCapacities, optimizedPokemon.getAllCapacities()
         );
     }
 
@@ -71,10 +72,10 @@ class PokemonServiceTest {
         );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
-        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pokemon.getName(), raichu);
-        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
-        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        OptimizedPokemon optimizedPokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(optimizedPokemon.getName(), raichu);
+        Assertions.assertEquals(optimizedPokemon.getAllTypes(), List.of(PokemonType.ELECTRIC));
+        Assertions.assertEquals(expectedCapacities, optimizedPokemon.getAllCapacities()
         );
     }
 
@@ -104,11 +105,11 @@ class PokemonServiceTest {
         );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
-        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pokemon.getName(), aquali);
-        Assertions.assertEquals(pokemon.getAllPossibleTypes(),
+        OptimizedPokemon optimizedPokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(optimizedPokemon.getName(), aquali);
+        Assertions.assertEquals(optimizedPokemon.getAllTypes(),
                 List.of(PokemonType.NORMAL, PokemonType.WATER));
-        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        Assertions.assertEquals(expectedCapacities, optimizedPokemon.getAllCapacities()
         );
 
     }
@@ -139,11 +140,11 @@ class PokemonServiceTest {
         );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
-        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pokemon.getName(), dracaufeu);
-        Assertions.assertEquals(pokemon.getAllPossibleTypes(),
+        OptimizedPokemon optimizedPokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(optimizedPokemon.getName(), dracaufeu);
+        Assertions.assertEquals(optimizedPokemon.getAllTypes(),
                 List.of(PokemonType.FIRE, PokemonType.FLYING));
-        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        Assertions.assertEquals(expectedCapacities, optimizedPokemon.getAllCapacities()
         );
     }
 
@@ -167,10 +168,10 @@ class PokemonServiceTest {
         );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
-        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pokemon.getName(), magmar);
-        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.FIRE));
-        Assertions.assertEquals(expectedCapacities, pokemon.getAllPossibleCapacities()
+        OptimizedPokemon optimizedPokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(optimizedPokemon.getName(), magmar);
+        Assertions.assertEquals(optimizedPokemon.getAllTypes(), List.of(PokemonType.FIRE));
+        Assertions.assertEquals(expectedCapacities, optimizedPokemon.getAllCapacities()
         );
     }
 }

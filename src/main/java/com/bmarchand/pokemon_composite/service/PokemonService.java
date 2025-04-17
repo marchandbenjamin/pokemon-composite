@@ -1,7 +1,7 @@
 package com.bmarchand.pokemon_composite.service;
 
+import com.bmarchand.pokemon_composite.controller.response.OptimizedPokemon;
 import com.bmarchand.pokemon_composite.controller.response.PokemonResponse;
-import com.bmarchand.pokemon_composite.service.domain.EvolvedPokemon;
 import com.bmarchand.pokemon_composite.service.domain.Pokemon;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +31,8 @@ public class PokemonService {
             Resource[] resources = resolver.getResources("classpath:data/*.json");
 
             for (Resource resource : resources) {
-                List<Pokemon> pokemonList = mapper.readValue(resource.getInputStream(), new TypeReference<List<Pokemon>>(){});
+                List<Pokemon> pokemonList = mapper.readValue(resource.getInputStream(), new TypeReference<List<Pokemon>>() {
+                });
 
                 for (Pokemon pokemon : pokemonList) {
                     pokemonDatabase.put(pokemon.getName().toLowerCase(), pokemon);
@@ -43,11 +44,17 @@ public class PokemonService {
     }
 
     public PokemonResponse pokemonTeamOptimizer(List<String> pokemonList) {
-        List<Pokemon> optimizedPokemonList = new ArrayList<>();
+        List<OptimizedPokemon> optimizedPokemonList = new ArrayList<>();
         pokemonList.forEach(pokemonName -> {
             Pokemon pokemon = pokemonDatabase.get(pokemonName.toLowerCase());
             if (pokemon != null) {
-                optimizedPokemonList.add(pokemon);
+                optimizedPokemonList.add(
+                        OptimizedPokemon.builder()
+                                .name(pokemon.getName())
+                                .allCapacities(pokemon.getAllPossibleCapacities())
+                                .allTypes(pokemon.getAllPossibleTypes())
+                                .build()
+                );
             }
         });
 
