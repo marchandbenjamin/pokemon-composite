@@ -28,16 +28,16 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
-        List<PokemonCapacities> expectedCapacities = Stream.of(
-                PokemonCapacities.THUNDER_SHOCK,
+        List<PokemonCapacities> expectedCapacities = List.of(
+                PokemonCapacities.DOUBLE_TEAM,
                 PokemonCapacities.GROWL,
                 PokemonCapacities.QUICK_ATTACK,
-                PokemonCapacities.THUNDERBOLT,
-                PokemonCapacities.THUNDER,
+                PokemonCapacities.REST,
                 PokemonCapacities.SWIFT,
-                PokemonCapacities.DOUBLE_TEAM,
-                PokemonCapacities.REST
-        ).sorted().toList();
+                PokemonCapacities.THUNDER,
+                PokemonCapacities.THUNDERBOLT,
+                PokemonCapacities.THUNDER_SHOCK
+        );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
@@ -57,18 +57,18 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
-        List<PokemonCapacities> expectedCapacities = Stream.of(
-                PokemonCapacities.THUNDER_SHOCK,
+        List<PokemonCapacities> expectedCapacities = List.of(
+                PokemonCapacities.AGILITY,
+                PokemonCapacities.DOUBLE_TEAM,
                 PokemonCapacities.GROWL,
                 PokemonCapacities.QUICK_ATTACK,
-                PokemonCapacities.THUNDERBOLT,
-                PokemonCapacities.THUNDER,
-                PokemonCapacities.SWIFT,
-                PokemonCapacities.DOUBLE_TEAM,
                 PokemonCapacities.REST,
-                PokemonCapacities.THUNDER_WAVE,
-                PokemonCapacities.AGILITY
-        ).sorted().toList();
+                PokemonCapacities.SWIFT,
+                PokemonCapacities.THUNDER,
+                PokemonCapacities.THUNDERBOLT,
+                PokemonCapacities.THUNDER_SHOCK,
+                PokemonCapacities.THUNDER_WAVE
+        );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
@@ -88,20 +88,20 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
-        List<PokemonCapacities> expectedCapacities = Stream.of(
-                PokemonCapacities.GROWL,
-                PokemonCapacities.QUICK_ATTACK,
-                PokemonCapacities.TACKLE,
-                PokemonCapacities.SAND_ATTACK,
-                PokemonCapacities.TAIL_WHIP,
-                PokemonCapacities.BITE,
-                PokemonCapacities.DOUBLE_EDGE,
-                PokemonCapacities.WATER_GUN,
+        List<PokemonCapacities> expectedCapacities = List.of(
                 PokemonCapacities.ACID_ARMOR,
                 PokemonCapacities.AURORA_BEAM,
+                PokemonCapacities.BITE,
+                PokemonCapacities.DOUBLE_EDGE,
+                PokemonCapacities.GROWL,
                 PokemonCapacities.HAZE,
-                PokemonCapacities.MIST
-        ).sorted().toList();
+                PokemonCapacities.MIST,
+                PokemonCapacities.QUICK_ATTACK,
+                PokemonCapacities.SAND_ATTACK,
+                PokemonCapacities.TACKLE,
+                PokemonCapacities.TAIL_WHIP,
+                PokemonCapacities.WATER_GUN
+        );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
@@ -123,7 +123,7 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
-        List<PokemonCapacities> expectedCapacities = Stream.of(
+        List<PokemonCapacities> expectedCapacities = List.of(
                 PokemonCapacities.EMBER,
                 PokemonCapacities.FIRE_BLAST,
                 PokemonCapacities.FIRE_SPIN,
@@ -136,7 +136,7 @@ class PokemonServiceTest {
                 PokemonCapacities.SLASH,
                 PokemonCapacities.SMOKESCREEN,
                 PokemonCapacities.WING_ATTACK
-        ).sorted().toList();
+        );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
@@ -157,14 +157,14 @@ class PokemonServiceTest {
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
         // ASSERT
-        List<PokemonCapacities> expectedCapacities = Stream.of(
+        List<PokemonCapacities> expectedCapacities = List.of(
                 PokemonCapacities.CONFUSE_RAY,
                 PokemonCapacities.EMBER,
                 PokemonCapacities.FIRE_PUNCH,
                 PokemonCapacities.FIRE_SPIN,
                 PokemonCapacities.LEER,
                 PokemonCapacities.SMOKESCREEN
-        ).sorted().toList();
+        );
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
