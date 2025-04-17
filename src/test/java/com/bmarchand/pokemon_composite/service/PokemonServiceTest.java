@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class PokemonServiceTest {
 
@@ -26,8 +24,10 @@ class PokemonServiceTest {
         String pikachu = "Pikachu";
         List<String> pokemonList = List.of(pikachu);
 
+        // WHEN
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
+        // ASSERT
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
         Assertions.assertEquals(pokemon.getName(), pikachu);
@@ -52,8 +52,10 @@ class PokemonServiceTest {
         String raichu = "Raichu";
         List<String> pokemonList = List.of(raichu);
 
+        // WHEN
         PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
 
+        // ASSERT
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
         Assertions.assertEquals(pokemon.getName(), raichu);
@@ -73,5 +75,40 @@ class PokemonServiceTest {
                 ),
                 pokemon.getAllPossibleCapacities()
         );
+    }
+
+    @Test
+    void pokemonTeamOptimizer_should_return_aquali_and_evoli_types_and_capacities() {
+        // GIVEN
+        String aquali = "Aquali";
+        List<String> pokemonList = List.of(aquali);
+
+        // WHEN
+        PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
+
+        // ASSERT
+        Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
+        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(pokemon.getName(), aquali);
+        Assertions.assertEquals(pokemon.getAllPossibleTypes(),
+                List.of(PokemonType.NORMAL, PokemonType.WATER));
+        Assertions.assertEquals(
+                List.of(
+                        PokemonCapacities.GROWL,
+                        PokemonCapacities.QUICK_ATTACK,
+                        PokemonCapacities.TACKLE,
+                        PokemonCapacities.SAND_ATTACK,
+                        PokemonCapacities.TAIL_WHIP,
+                        PokemonCapacities.BITE,
+                        PokemonCapacities.DOUBLE_EDGE,
+                        PokemonCapacities.WATER_GUN,
+                        PokemonCapacities.ACID_ARMOR,
+                        PokemonCapacities.AURORA_BEAM,
+                        PokemonCapacities.HAZE,
+                        PokemonCapacities.MIST
+                ),
+                pokemon.getAllPossibleCapacities()
+        );
+
     }
 }

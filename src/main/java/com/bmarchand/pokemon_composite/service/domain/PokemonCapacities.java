@@ -10,5 +10,16 @@ public enum PokemonCapacities {
     DOUBLE_TEAM,
     REST,
     THUNDER_WAVE,
-    AGILITY
+    AGILITY,
+    TACKLE,
+    SAND_ATTACK,
+    TAIL_WHIP,
+    BITE,
+    DOUBLE_EDGE,
+    WATER_GUN,
+    ACID_ARMOR,
+    AURORA_BEAM,
+    HAZE,
+    MIST
+
 }

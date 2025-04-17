@@ -1,20 +1,93 @@
 [
   {
     "name": "Pikachu",
-    "types": ["ELECTRIC"],
-    "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"],
+    "types": [
+      "ELECTRIC"
+    ],
+    "capacities": [
+      "THUNDER_SHOCK",
+      "GROWL",
+      "QUICK_ATTACK",
+      "THUNDERBOLT",
+      "THUNDER",
+      "SWIFT",
+      "DOUBLE_TEAM",
+      "REST"
+    ],
     "type": "Pokemon"
   },
   {
     "name": "Raichu",
-    "types": ["ELECTRIC"],
-    "capacities": ["THUNDER_WAVE", "AGILITY"],
-    "preEvolution":   {
+    "types": [
+      "ELECTRIC"
+    ],
+    "capacities": [
+      "THUNDER_WAVE",
+      "AGILITY"
+    ],
+    "preEvolution": {
       "name": "Pikachu",
-      "types": ["ELECTRIC"],
-      "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"],
+      "types": [
+        "ELECTRIC"
+      ],
+      "capacities": [
+        "THUNDER_SHOCK",
+        "GROWL",
+        "QUICK_ATTACK",
+        "THUNDERBOLT",
+        "THUNDER",
+        "SWIFT",
+        "DOUBLE_TEAM",
+        "REST"
+      ],
       "type": "Pokemon"
     },
     "type": "EvolvedPokemon"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Evoli",
+    "types": [
+      "NORMAL"
+    ],
+    "capacities": [
+      "TACKLE",
+      "SAND_ATTACK",
+      "QUICK_ATTACK",
+      "TAIL_WHIP",
+      "BITE",
+      "GROWL",
+      "DOUBLE_EDGE"
+    ]
+  },
+  {
+    "type": "EvolvedPokemon",
+    "name": "Aquali",
+    "preEvolution": {
+      "type": "Pokemon",
+      "name": "Evoli",
+      "types": [
+        "NORMAL"
+      ],
+      "capacities": [
+        "TACKLE",
+        "SAND_ATTACK",
+        "QUICK_ATTACK",
+        "TAIL_WHIP",
+        "BITE",
+        "GROWL",
+        "DOUBLE_EDGE"
+      ]
+    },
+    "types": [
+      "WATER"
+    ],
+    "capacities": [
+      "WATER_GUN",
+      "ACID_ARMOR",
+      "AURORA_BEAM",
+      "HAZE",
+      "MIST"
+    ]
   }
 ]
