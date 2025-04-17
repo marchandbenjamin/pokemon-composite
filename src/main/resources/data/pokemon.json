@@ -1,5 +1,20 @@
-{
-  "name": "Pikachu",
-  "types": ["ELECTRIC"],
-  "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"]
-}
+[
+  {
+    "name": "Pikachu",
+    "types": ["ELECTRIC"],
+    "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"],
+    "type": "Pokemon"
+  },
+  {
+    "name": "Raichu",
+    "types": ["ELECTRIC"],
+    "capacities": ["THUNDER_WAVE", "AGILITY"],
+    "preEvolution":   {
+      "name": "Pikachu",
+      "types": ["ELECTRIC"],
+      "capacities": ["THUNDER_SHOCK", "GROWL", "QUICK_ATTACK", "THUNDERBOLT", "THUNDER", "SWIFT", "DOUBLE_TEAM", "REST"],
+      "type": "Pokemon"
+    },
+    "type": "EvolvedPokemon"
+  }
+]

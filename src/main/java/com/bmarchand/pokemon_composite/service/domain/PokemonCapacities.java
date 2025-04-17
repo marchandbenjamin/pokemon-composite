@@ -8,5 +8,7 @@ public enum PokemonCapacities {
     THUNDER,
     SWIFT,
     DOUBLE_TEAM,
-    REST
+    REST,
+    THUNDER_WAVE,
+    AGILITY
 }

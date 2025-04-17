@@ -30,10 +30,9 @@ class PokemonServiceTest {
 
         Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
         Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
-        Assertions.assertEquals(pikachu, pokemon.getName());
-        Assertions.assertEquals(List.of(PokemonType.ELECTRIC), pokemon.getTypes());
+        Assertions.assertEquals(pokemon.getName(), pikachu);
+        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
         Assertions.assertEquals(
-                pokemon.getCapacities(),
                 List.of(
                         PokemonCapacities.THUNDER_SHOCK,
                         PokemonCapacities.GROWL,
@@ -42,7 +41,37 @@ class PokemonServiceTest {
                         PokemonCapacities.THUNDER,
                         PokemonCapacities.SWIFT,
                         PokemonCapacities.DOUBLE_TEAM,
-                        PokemonCapacities.REST)
+                        PokemonCapacities.REST),
+                pokemon.getAllPossibleCapacities()
+        );
+    }
+
+    @Test
+    void pokemonTeamOptimizer_should_return_raichu_and_pikachu_type_and_capacities() {
+        // GIVEN
+        String raichu = "Raichu";
+        List<String> pokemonList = List.of(raichu);
+
+        PokemonResponse pokemonResponse = pokemonService.pokemonTeamOptimizer(pokemonList);
+
+        Assertions.assertNotNull(pokemonResponse.getPokemonTeam());
+        Pokemon pokemon = pokemonResponse.getPokemonTeam().getFirst();
+        Assertions.assertEquals(pokemon.getName(), raichu);
+        Assertions.assertEquals(pokemon.getAllPossibleTypes(), List.of(PokemonType.ELECTRIC));
+        Assertions.assertEquals(
+                List.of(
+                        PokemonCapacities.THUNDER_SHOCK,
+                        PokemonCapacities.GROWL,
+                        PokemonCapacities.QUICK_ATTACK,
+                        PokemonCapacities.THUNDERBOLT,
+                        PokemonCapacities.THUNDER,
+                        PokemonCapacities.SWIFT,
+                        PokemonCapacities.DOUBLE_TEAM,
+                        PokemonCapacities.REST,
+                        PokemonCapacities.THUNDER_WAVE,
+                        PokemonCapacities.AGILITY
+                ),
+                pokemon.getAllPossibleCapacities()
         );
     }
 }

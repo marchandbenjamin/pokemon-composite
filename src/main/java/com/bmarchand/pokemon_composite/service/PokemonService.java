@@ -1,7 +1,9 @@
 package com.bmarchand.pokemon_composite.service;
 
 import com.bmarchand.pokemon_composite.controller.response.PokemonResponse;
+import com.bmarchand.pokemon_composite.service.domain.EvolvedPokemon;
 import com.bmarchand.pokemon_composite.service.domain.Pokemon;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -29,17 +31,19 @@ public class PokemonService {
             Resource[] resources = resolver.getResources("classpath:data/*.json");
 
             for (Resource resource : resources) {
-                Pokemon pokemon = mapper.readValue(resource.getInputStream(), Pokemon.class);
-                pokemonDatabase.put(pokemon.getName().toLowerCase(), pokemon);
+                List<Pokemon> pokemonList = mapper.readValue(resource.getInputStream(), new TypeReference<List<Pokemon>>(){});
+
+                for (Pokemon pokemon : pokemonList) {
+                    pokemonDatabase.put(pokemon.getName().toLowerCase(), pokemon);
+                }
             }
-            System.out.println("✅ " + pokemonDatabase.size() + " Pokémon(s) loaded from JSON.");
         } catch (IOException e) {
             throw new RuntimeException("Failed to load Pokémon data from JSON", e);
         }
     }
 
     public PokemonResponse pokemonTeamOptimizer(List<String> pokemonList) {
-        List<Pokemon> optimizedPokemonList = new ArrayList<Pokemon>();
+        List<Pokemon> optimizedPokemonList = new ArrayList<>();
         pokemonList.forEach(pokemonName -> {
             Pokemon pokemon = pokemonDatabase.get(pokemonName.toLowerCase());
             if (pokemon != null) {
