@@ -43,3 +43,9 @@ The application returns:
 This logic forms a **composite structure** where:
 - Each **evolution stage** is a node in the tree.
 - The application traverses the tree to gather the full set of **types** and **capacities**.
+
+### Local testing
+
+curl --location 'http://localhost:8080/optimizePokemonTeam' \
+--header 'Content-Type: application/json' \
+--data '["pikachu", "raichu", "aquali"]'
